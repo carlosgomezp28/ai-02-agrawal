@@ -3,112 +3,214 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage{amsmath,amssymb}
-\usepackage{booktabs}
+\usepackage{graphicx}
 \usetheme{default}
 \usecolortheme{seahorse}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
-\setbeamerfont{frametitle}{size=\large}
+\setbeamerfont{frametitle}{size=\Large}
+\setbeamerfont{title}{size=\LARGE}
+\setbeamersize{text margin left=7mm,text margin right=7mm}
 
-\title{Aouad, Lykouris \& Zhong (2026)}
-\subtitle{\emph{Human-AI Productivity Paradoxes} --- Section 2}
-\author{Alexander Quispe}
-\date{Repository 1 \textperiodcentered{} Week of August 17--22}
+\definecolor{accent}{RGB}{55,76,118}
+\setbeamercolor{structure}{fg=accent}
+\setbeamercolor{alerted text}{fg=red!70!black}
+
+\title{The Economics of Bicycles for the Mind}
+\subtitle{Agrawal, Gans \& Goldfarb (2025)\\[0.4em]
+NBER Working Paper 34034}
+\author{}
+\date{}
 
 \begin{document}
 
-%================= PORTADA (con el enlace al repositorio) =============
+% 1 ------------------------------------------------------------------
 \begin{frame}[plain]
   \titlepage
-  \begin{center}\small
-    \texttt{github.com/alexanderquispe/ai-01-aouad}
+  \vspace{-1.1em}
+  \begin{center}
+    \small\url{https://github.com/carlosgomezp28/ai-02-agrawal}
+
+    \vfill
+    \footnotesize Repository 2 --- Artificial Intelligence and Economic Modeling
   \end{center}
 \end{frame}
 
-%================= 1. EL ART\'ICULO ====================================
-\begin{frame}{1 \textperiodcentered{} The paper and the agent's problem}
-  \textbf{Question.} When does AI assistance make a worker \emph{less} productive?
-
-  \medskip
-  \textbf{The single mechanism.} AI is a \emph{perfectly substitutable input}:
-  skill, effort and assistance enter production only through their sum.
-  \[ x \;=\; s + e + a \]
-
-  \medskip
-  \textbf{The agent's problem.} Choose effort $e$ to maximise output net of a
-  \emph{linear} cost:
-  \[ \max_{e \ge 0}\; p(s+e+a) \;-\; \gamma e \]
+% 2 ------------------------------------------------------------------
+\begin{frame}{The Paper: Cognitive Tools and Human Capabilities}
+  \textbf{Question.} How do cognitive tools change productivity and the value
+  of different human capabilities?
 
   \smallskip
-  \begin{itemize}\small
-    \item $p$ weakly increasing, concave, twice differentiable; $\gamma>0$.
-    \item Only constraint: $e \ge 0$ --- and it binds. That is the whole result.
-  \end{itemize}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.32\textwidth}
+      \textbf{Implementation skill $s$}
+      \begin{itemize}
+        \item Converts effort into successful implementation
+        \item Tools substitute for it
+      \end{itemize}
+
+    \column{0.32\textwidth}
+      \textbf{Opportunity judgment $\rho$}
+      \begin{itemize}
+        \item Recognizes further improvements
+        \item Complements tools
+      \end{itemize}
+
+    \column{0.32\textwidth}
+      \textbf{Payoff judgment $\eta$}
+      \begin{itemize}
+        \item Turns success into value
+        \item Complementarity is conditional
+      \end{itemize}
+  \end{columns}
+
+  \vspace{-0.2em}
+  \begin{block}{Agent's problem}
+    \vspace{-0.8em}
+    \[
+      M(e;\theta)=p(se;\theta)\eta\Delta-c(e;\theta),\qquad
+      e^*(\theta)\in\arg\max_{e\geq0}M(e;\theta)
+    \]
+    \vspace{-1.0em}
+    \[
+      p_x(se;\theta)s\eta\Delta=c_e(e;\theta).
+    \]
+  \end{block}
+  \vspace{-0.3em}
+  \centering\emph{AI improves implementation technology, but the worker
+  optimally changes effort in response.}
 \end{frame}
 
-%================= 2. EL RESULTADO ===================================
-\begin{frame}{2 \textperiodcentered{} Proposition 2.1, with all its conditions}
-  Define $x^{*}$ as the \emph{largest} maximiser of $p(x)-\gamma x$:
-  \[ x^{*} \;=\; \max\,\arg\max_{x}\;\bigl[\,p(x)-\gamma x\,\bigr] \]
+% 3 ------------------------------------------------------------------
+\begin{frame}{Main Results: Propositions 1--3}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \column{0.29\textwidth}
+      \begin{block}{Proposition 1}
+        \[
+          \begin{gathered}
+            e^*(1)<e^*(0),\\[-0.2em]
+            V_0(1)>V_0(0).
+          \end{gathered}
+        \]
+        Less implementation effort,\\ greater total value.
+      \end{block}
 
-  \textbf{Regularity condition} (without it $x^{*}$ need not exist):
-  \[ \limsup_{x\to\infty} \frac{p(x)}{x} \;<\; \gamma \]
+    \column{0.37\textwidth}
+      \begin{block}{Proposition 2}
+        \begin{itemize}
+          \setlength\itemsep{0.15em}
+          \item Opportunity judgment: complement
+          \item Implementation skill: substitute if $p_{s\theta}<0$
+          \item Payoff judgment: conditional complement
+        \end{itemize}
+        \vspace{-0.25em}
+        \[
+          \begin{aligned}
+          \frac{dD}{d\eta}=\Gamma\Delta\bigl[&p(se^*(1);1)\\[-0.15em]
+                                               &-p(se^*(0);0)\bigr].
+          \end{aligned}
+        \]
+      \end{block}
 
-  \medskip
-  \textbf{Then}
-  \[ e^{*}(s,a) = \bigl(x^{*}-s-a\bigr)_{+}, \qquad
-     p^{*}(s,a) = \max\bigl\{\,p(x^{*}),\; p(s+a)\,\bigr\} \]
+    \column{0.30\textwidth}
+      \begin{block}{Proposition 3}
+        \[
+          e(\theta)=\frac{\eta^2s}{4}-\frac{\theta}{s},
+        \]
+        \vspace{-0.65em}
+        \textbf{Interiority:} $\eta^2s^2>4\theta$.
+        \vspace{-0.35em}
+        \[
+          V(\theta)=G\left[\frac{\eta^2s}{4}+\frac{\theta}{s}\right].
+        \]
+      \end{block}
+  \end{columns}
 
-  \medskip
-  \footnotesize\emph{Intuition.} The agent has one target level of total input;
-  he tops it up with effort, and once skill plus AI already reach it he simply
-  stops working.
+  \vspace{-0.55em}
+  \begin{alertblock}{Condition (30): inequality initially falls}
+    \vspace{-0.45em}
+    \[
+      \frac{E[G^2]}{(E[G])^2}<\bar{s}\,E[1/s].
+    \]
+  \end{alertblock}
 \end{frame}
 
-%================= 3. LO QUE HICE ====================================
-\begin{frame}{3 \textperiodcentered{} What I did}
-  \textbf{Reproduced} Proposition 2.1 by hand --- the interior-versus-corner
-  split, with no differentiation in the proof (\texttt{hand/}).
+% 4 ------------------------------------------------------------------
+\begin{frame}{What I Did}
+  \begin{enumerate}
+    \item Reconstructed the effort FOC and Proposition 2 envelope-theorem argument.
 
-  \medskip
-  \textbf{Assumptions I considered relaxing}
-  \begin{itemize}\small
-    \item \textbf{Linear cost $\to$ convex.} \emph{Dead end}: the authors already
-      do it in Appendix D (Props. D.3, D.6). Replication, not extension.
-    \item \textbf{Myopia.} A two-period agent who internalises skill dynamics.
-      Never relaxed anywhere in the paper --- this is the live one.
-    \item \textbf{Complementarity inside $p(\cdot)$} rather than as an added
-      interaction term. Harder: \S{}4.4 and \S{}5.3 partly pre-empt it.
-  \end{itemize}
+    \item Derived Proposition 3's variance from first principles:
+      \[
+        \operatorname{Var}(V(\theta))
+        =A+a_0\theta+\theta^2\operatorname{Var}(G/s),
+        \qquad
+        \frac{d\operatorname{Var}(V(\theta))}{d\theta}
+        =a_0+2\theta\operatorname{Var}(G/s).
+      \]
 
-  \medskip
-  \textbf{Also produced} a full step-by-step tutorial of the paper and two
-  lecture decks (\texttt{extra/}).
+    \item Separated total-value inequality from inequality in individual AI benefits:
+      \[
+        B_i(\theta)=V_i(\theta)-V_i(0)=\theta\frac{G_i}{s_i},
+        \qquad
+        \operatorname{Var}(B(\theta))=\theta^2\operatorname{Var}(G/s).
+      \]
+
+    \item Audited the assumptions behind the claimed U-shape.
+  \end{enumerate}
+
+  \begin{alertblock}{Takeaway}
+    Unequal AI benefits can increase even while total outcome inequality initially falls.
+  \end{alertblock}
 \end{frame}
 
-%================= 4. LA IA =========================================
-\begin{frame}{4 \textperiodcentered{} Where I did not believe the AI}
-  \textbf{What I asked.} ``What is the most natural extension of this model?''
+% 5 ------------------------------------------------------------------
+\begin{frame}{Where I Did Not Believe AI}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \column{0.72\textwidth}
+      \textbf{Initial LLM claim:} ``Variance is globally U-shaped in $\theta$.''
 
-  \medskip
-  \textbf{What the model answered.} Relax the linear cost $c(e)=\gamma e$ to a
-  strictly convex $c(e)$ --- presented confidently as an open direction.
+      \smallskip
+      \textbf{My check}
+      \[
+        e(\theta)=\frac{\eta^2s}{4}-\frac{\theta}{s}
+        \qquad\text{requires}\qquad \eta^2s^2>4\theta.
+      \]
+      Therefore the interior formula cannot automatically be extended to all
+      $\theta\geq0$.
 
-  \medskip
-  \textbf{My verdict: \textcolor{red}{incorrect as an extension}.}
-  \begin{itemize}\small
-    \item Appendix D is titled \emph{``Extension to convex cost functions''} and
-      redoes Sections 2--4 under strictly convex cost.
-    \item So the proposal is already in the paper. I checked the appendix
-      directly rather than taking the answer at face value.
-    \item \emph{Caveat worth keeping:} Appendix D covers \S\S{}2--4 but \textbf{not}
-      \S{}5, so convex cost applied to the skill-polarisation result is genuinely
-      untouched.
+    \column{0.24\textwidth}
+      \centering
+      \includegraphics[page=1,width=\linewidth,height=0.23\textheight,keepaspectratio]
+        {hand/prop-2-envelope-theorem.pdf}
+
+      \scriptsize Handwritten envelope-theorem check
+  \end{columns}
+
+  \vspace{-0.4em}
+  \[
+    \frac{d^2\operatorname{Var}(V(\theta))}{d\theta^2}
+    =2\operatorname{Var}(G/s)\geq0.
+  \]
+  \vspace{-0.75em}
+  \begin{itemize}
+    \setlength\itemsep{0.1em}
+    \item Convex on the common interior domain.
+    \item Condition (30) makes the initial slope negative.
+    \item A U-shape additionally requires $\theta^*$ inside that domain.
   \end{itemize}
 
-  \medskip
-  \footnotesize The step I re-derived by hand is in \texttt{hand/} --- I did not
-  trust the algebra of the first-order condition until I had written it out.
+  \vspace{-0.35em}
+  \begin{alertblock}{Verdict: referee concern, not a confirmed paper error}
+    Eq.~(32)'s positive slope at $\theta=1$ is not implied by condition (30) alone.
+  \end{alertblock}
+
+  \vspace{-0.4em}
+  \scriptsize The suspected coefficient-of-variation typo was retracted because
+  PDF extraction may have omitted a square root.
 \end{frame}
 
 \end{document}
