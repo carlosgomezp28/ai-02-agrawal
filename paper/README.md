@@ -1,14 +1,28 @@
 # The paper
 
-Not committed — it is a third-party PDF and the repository should stay light.
+The paper for Repository 2 is:
 
-**Aouad, A., Lykouris, T., & Zhong, H. (2026).** *Human-AI Productivity Paradoxes:
-Modeling the Interplay of Skill, Effort, and AI Assistance.*
+**Agrawal, A. K., Gans, J. S., & Goldfarb, A. (2025).**  
+*The Economics of Bicycles for the Mind.*  
+NBER Working Paper No. 34034.
 
-- https://arxiv.org/abs/2605.11350
-- Direct PDF: https://arxiv.org/pdf/2605.11350
+- NBER page: https://www.nber.org/papers/w34034
+- DOI: https://doi.org/10.3386/w34034
 
-```bash
-curl -L -o paper/aouad-lykouris-zhong-2026-productivity-paradoxes.pdf \
-  https://arxiv.org/pdf/2605.11350
-```
+This is an NBER Working Paper issued in July 2025.
+
+The local PDF is used for the analysis but is not committed to the repository.
+
+## Focus of the repository
+
+The repository focuses on:
+
+- Proposition 1
+- Proposition 2
+- Proposition 3
+- First-order conditions
+- The envelope-theorem argument
+- The geometric-series derivation
+- Variance algebra
+- The conditions under which inequality may display a U-shaped pattern
+- The distinction between total-value variance and variance of individual tool benefits
